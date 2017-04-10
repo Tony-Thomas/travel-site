@@ -1,7 +1,7 @@
 var gulp = require('gulp'), 
 watch = require('gulp-watch'),
 postcss = require('gulp-postcss'),
-autoprefixer = require('autoprfixer');
+autoprefixer = require('autoprefixer');
 
 gulp.task('default', function() {
 	console.log("Hooray - You created a Gulp task!");
@@ -13,7 +13,7 @@ gulp.task('html', function() {
 
 gulp.task('styles', function() {
 	return gulp.src('./app/assets/styles/styles.css')
-	.pipe([autoprfixer])
+	.pipe(postcss([autoprefixer]))
 	.pipe(gulp.dest('./app/temp/styles'));
 });
 
