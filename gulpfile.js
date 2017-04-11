@@ -20,7 +20,7 @@ gulp.task('styles', function() {
 	.pipe(gulp.dest('./app/temp/styles'));
 });
 
-gulp.task('watch', function(){
+gulp.task('watch', function() {
 
 	watch('./app/index.html', function() {
 		gulp.start('html');
