@@ -459,6 +459,25 @@ textarea {
   margin-left: auto;
 }
 
+.btn {
+	background-color: #2f5572;
+	color: #fff;
+	text-decoration: none;
+	padding: .75rem 1.2rem;
+	display: inline-block;
+}
+
+/*-Parent and surrounding elements will be aware of its vertical padding-*/
+
+.btn--orange {
+  background-color: #d59541;
+}
+
+.btn--large {
+  font-size: 1.25rem;/*-25% larger than default font-*/
+  padding: 1.1rem 1.9rem;
+}
+
 body {
 	font-family: 'roboto', sans-serif;
 	color: #333;
