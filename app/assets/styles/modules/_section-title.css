@@ -3,6 +3,7 @@
 	text-align: center;
 	font-weight: 300;
 	
+	/*-530px-*/
 	@mixin atSmall {
 		font-size: 3.75em;
 
@@ -17,7 +18,7 @@
 		margin-right: auto;
 		margin-bottom: .6rem;
 		
-
+		/*-530px-*/
 		@mixin atSmall {
 			margin-right: .5;
 			margin-left: 0;

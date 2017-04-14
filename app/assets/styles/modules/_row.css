@@ -22,7 +22,8 @@
 		margin-bottom: 1rem;
 		
 	}
-
+	
+	/*-800px-*/
 	@mixin atMedium {
 		&__b-margin-until-medium {
 			margin-bottom: 0;
