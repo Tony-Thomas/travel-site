@@ -1,0 +1,33 @@
+$mainOrange: #d59541; /*- bug makes me put var here-*/
+
+.testimonial {
+	background-color: rgba(255, 255, 255, .8);
+	padding: 0 1.8125rem 1px 1.8125rem;
+
+	&__photo {
+		border-radius: 80px; /*- photo is 160px, devide pic size by 2 to get circular radius-*/
+		overflow: hidden; 
+		height: 160px;
+		width: 160px;
+		margin: 0 auto -80px auto; /*-lifts the rest of the contnt to fill the space left by image by appluing negative top margin-*/
+		position: relative;
+		top: -80px; /*-lifts image so image overhangs top border by half its size-*/
+		border: 6px solid rgba(255, 255, 255, .8);
+		
+	}
+
+	&__title {
+		color: $mainBlue;
+		text-align: center;
+		font-size: 1.5rem;
+		font-weight: 500;
+	}
+
+	&__subtitle {
+		color: $mainOrange;
+		text-align: center;
+		font-weight: 400;
+		font-size: 0.9375rem;
+
+	}
+}
