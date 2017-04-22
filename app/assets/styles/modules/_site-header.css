@@ -1,0 +1,19 @@
+.site-header {
+	position: absolute;
+	z-index: 2; /*-by default when two HTML elements are positioned in a way that will overlap, the element that comes later in the html doc will be the lop layer. Z-index overrides this.-*/
+	background-color: rgba($mainBlue, .3);
+	width: 100%;
+	padding: 10px 0;
+
+	&__btn-container {
+		float: right;
+	}
+
+	&__logo {
+		position: absolute;
+		background-color: $mainBlue;
+		padding: 25px 36px;
+		top: 0;
+	}
+
+}
