@@ -20,4 +20,12 @@
 		top: 0;
 	}
 
+	&__menu-content {
+		display: none;
+
+		@mixin atMedium {
+			display: block;
+		}
+	}
+
 }
