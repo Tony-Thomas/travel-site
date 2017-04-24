@@ -1047,6 +1047,9 @@ a {
   background-color: #2f5572;
   padding: 25px 36px;
   top: 0;
+  left: 50%;/*-position logo 50% to the left-*/
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);/*-pulls logo back to the right 50% of its own width-*/
 }
 
 .site-header__menu-content {
