@@ -63,25 +63,11 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 2);
+/******/ 	return __webpack_require__(__webpack_require__.s = 1);
 /******/ })
 /************************************************************************/
 /******/ ([
 /* 0 */
-/***/ (function(module, exports) {
-
-function Person(fullName, favColor) {
-  this.name = fullName;
-  this.favoriteColor = favColor;
-  this.greet = function() {
-    console.log("Hello, my name is " + this.name + " and my favorite color is " + this.favoriteColor + ".");
-  }
-}
-
-module.exports = Person;
-
-/***/ }),
-/* 1 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
@@ -9902,11 +9888,13 @@ return jQuery;
 
 
 /***/ }),
-/* 2 */
+/* 1 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var $ = __webpack_require__(1);
-var Person = __webpack_require__(0);
+var $ = __webpack_require__(0);
+var Person = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"./modules/Personnn\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
+
+alert("testing again");
 
 var john = new Person("John Doe", "blue");
 john.greet();
