@@ -459,7 +459,14 @@ a {
   left: 0;
   width: 100%;
   text-align: center;
-  padding-top: 60px;
+  padding-top: 88px;
+}
+
+@media (min-width: 800px) {
+
+  .large-hero__text-content {
+    padding-top: 60px;
+  }
 }
 
 .large-hero__title {
