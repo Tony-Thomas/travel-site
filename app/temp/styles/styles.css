@@ -1049,7 +1049,18 @@ a {
   top: 0;
   left: 50%;/*-position logo 50% to the left-*/
   -webkit-transform: translateX(-50%);
-          transform: translateX(-50%);/*-pulls logo back to the right 50% of its own width-*/
+          transform: translateX(-50%);
+}
+
+/*-pulls logo back to the right 50% of its own width-*/
+
+@media (min-width: 800px) {
+
+  .site-header__logo {
+    left: auto;
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+  }
 }
 
 .site-header__menu-content {
