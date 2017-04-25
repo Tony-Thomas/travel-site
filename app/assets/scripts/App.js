@@ -1,5 +1,5 @@
 var $ = require('jquery');
-var Person = require('./modules/Personnn');
+var Person = require('./modules/Person');
 
 alert("testing again");
 
