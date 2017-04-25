@@ -68,15 +68,32 @@
 /************************************************************************/
 /******/ ([
 /* 0 */
-/***/ (function(module, exports) {
+/***/ (function(module, exports, __webpack_require__) {
 
-function Person(fullName, favColor) {
-  this.name = fullName;
-  this.favoriteColor = favColor;
-  this.greet = function() {
-    console.log("Hello, my name is " + this.name + " and my favorite color is " + this.favoriteColor + ".");
-  }
-}
+"use strict";
+
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var person = function () {
+	function person(fullName, favColor) {
+		_classCallCheck(this, person);
+
+		this.name = fullName;
+		this.favoriteColor = favColor;
+	}
+
+	_createClass(person, [{
+		key: "greet",
+		value: function greet() {
+			console.log("suck it, my name is " + this.name + " and my favorite color is " + this.favoriteColor + ".");
+		}
+	}]);
+
+	return person;
+}();
 
 module.exports = Person;
 
@@ -9904,6 +9921,9 @@ return jQuery;
 /***/ }),
 /* 2 */
 /***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
 
 var $ = __webpack_require__(1);
 var Person = __webpack_require__(0);
