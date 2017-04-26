@@ -1,16 +1,22 @@
 .site-header {
 	position: absolute;
 	z-index: 2; /*-by default when two HTML elements are positioned in a way that will overlap, the element that comes later in the html doc will be the lop layer. Z-index overrides this.-*/
-	
 	width: 100%;
 	padding: 10px 0;
+	transition: background-color .3s ease-out;
+
+	&--is-expanded {
+		background-color: rgba($mainBlue, .55);
+	}
 
 	@mixin atMedium {
 		background-color: rgba($mainBlue, .3);
 	}
 
 	&__btn-container {
-		float: right;
+		@mixin atMedium {
+			float: right;
+		}
 	}
 
 	&__logo {
@@ -33,6 +39,7 @@
 		height: 20px;
 		background-color: #fff;
 		position: absolute;
+		z-index: 10; /*-puts button on top layer so nothing else can overlap it.-*/
 		top: 10px;
 		right: 10px;
 
@@ -42,14 +49,26 @@
 	}
 
 	&__menu-content {
-		display: none;
+		opacity: 0; /*-replaced display: none;-*/
+		transform: scale(1.2); /*-20% larger than default size-*/
+		padding-top: 80px; /*-changed from 100px to better center menu content.-*/
+		text-align: center;
+		transition: all .3s, ease-out;
+		position: relative; /*-the brwoser wony acknowledge z-index without this-*/
+		z-index: -10; /*-sets content beneath all the other content on the page so it cant be accidentally clicked on while hideden with opacity.-*/
 
 		@mixin atMedium {
-			display: block;
+			opacity: 1; /*-replaced display: block;-*/
+			z-index: 1; /* desktop default-*/
+			padding-top: 0;
+			transform: scale(1); /*-desktop default-*/
 		}
 
 		&--is-visible {
 			display: block;
+			opacity: 1;
+			z-index: 1;
+			transform: scale(1); /*-return to default size-*/
 		}
 	}
 
