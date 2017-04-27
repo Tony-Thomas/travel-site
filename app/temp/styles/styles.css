@@ -1076,25 +1076,87 @@ a {
   .site-header__logo {/*-reposition logo on desktop screens-*/
     left: auto;
     -webkit-transform: translateX(0);
-            transform: translateX(0);
+            transform: translateX(0);/*-Defines a translation, using only the value for the X-axis -- The transform property applies a 2D or 3D transformation to an element. This property allows you to rotate, scale, move, skew, etc., elements.-*/
   }
 }
 
 .site-header__menu-icon {
   width: 20px;
-  height: 20px;
-  background-color: #fff;
-  position: absolute;
+  height: 19px;
+  position: absolute;/*-position: static|absolute|fixed|relative|initial|inherit; specifies the type of positioning method used for an element (static, relative, absolute or fixed).-*/
   z-index: 10;/*-puts button on top layer so nothing else can overlap it.-*/
   top: 10px;
   right: 10px;
 }
 
+.site-header__menu-icon::before {/*- was &__top - sudo element we can use for the top bar-*/
+  content:"";/*-The content property is used with the :before and :after pseudo-elements, to insert generated content.-*/
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 20px;
+  height: 3px;
+  background-color: #fff;
+  -webkit-transform-origin: 0 0;
+          transform-origin: 0 0;/*-Top left corner origin is 0 0. The transform-origin property allows you to change the position of transformed elements. By default browsers are set to 50% horizontal 50% vertical.-*/
+  -webkit-transition: -webkit-transform .3s ease-out;
+  transition: -webkit-transform .3s ease-out;
+  transition: transform .3s ease-out;
+  transition: transform .3s ease-out, -webkit-transform .3s ease-out;/*-gradually transform/transition into x shape, 300 milliseconds, ease-out style-*/
+}
+
+.site-header__menu-icon__middle {
+  position: absolute;
+  top: 8px;/*-8px lower than top bar-*/
+  left: 0;
+  width: 20px;
+  height: 3px;
+  background-color: #fff;
+  -webkit-transition: all .3s ease-out;
+  transition: all .3s ease-out;/*-gradually dissapear middle bar over 300 milliseconds, chnaged transition from just opacity propety to "all" properties-*/
+  -webkit-transform-origin: 0 50%;
+          transform-origin: 0 50%;/*-without this setting the transform origin woulf be "center", instead of shrinking in from both the left and right, this sets it to shrink in from only the right treating the left side at the pivot point-*/
+}
+
+.site-header__menu-icon::after {
+  content: "";
+  position: absolute;
+  bottom: 0px;/*-could also set this to 1px instead of setting menu-icon height to 19px -*/
+  left: 0;
+  width: 20px;/*-The width property does not include padding, borders, or margins; it sets the width of the area inside the padding, border, and margin of the element!-*/
+  height: 3px;/*-The height property does not include padding, borders, or margins; it sets the height of the area inside the padding, border, and margin of the element!-*/
+  background-color: #fff;/*-The background-color property sets the background color of an element. The background of an element is the total size of the element, including padding and border (but not the margin).-*/
+  -webkit-transform-origin: 0 100%;
+          transform-origin: 0 100%;/*- 0 to point to left corner and 100% to point to point ot vertical bottom-*/
+  -webkit-transition: -webkit-transform .3s ease-out;
+  transition: -webkit-transform .3s ease-out;
+  transition: transform .3s ease-out;
+  transition: transform .3s ease-out, -webkit-transform .3s ease-out;/*-same settings as top bar-*/
+}
+
 @media (min-width: 800px) {
 
   .site-header__menu-icon {
-    display: none;
+    display: none;/*- The element will not be displayed at all (has no effect on layout)-*/
   }
+}
+
+/*-hamburger menu click animation-*/
+
+.site-header__menu-icon--close-x::before {
+  -webkit-transform: rotate(45deg) scaleX(1.25);
+          transform: rotate(45deg) scaleX(1.25);/*-scaleX setting lengthens the bar bar 25%-*/
+}
+
+.site-header__menu-icon--close-x .site-header__menu-icon__middle {
+  opacity: 0;/*-hide middle bar when when hanburder menu is clicked-*/
+  -webkit-transition: scaleX(0);
+  transition: scaleX(0);/*-transition from full width down to zero width-*/
+}
+
+.site-header__menu-icon--close-x::after {
+  -webkit-transform: rotate(-45deg) scaleX(1.25) translateY(1px);
+          transform: rotate(-45deg) scaleX(1.25) translateY(1px);/*-scaleX = counter clockwise, translateY = vertical positioning 1px lower-*/
 }
 
 .site-header__menu-content {
@@ -1102,14 +1164,14 @@ a {
   -webkit-transform: scale(1.2);
           transform: scale(1.2);/*-20% larger than default size-*/
   padding-top: 80px;/*-changed from 100px to better center menu content.-*/
-  text-align: center;
+  text-align: center;/*-The text-align property specifies the horizontal alignment of text in an element. text-align: left|right|center|justify|initial|inherit;-*/
   -webkit-transition: all .3s, ease-out;
-  transition: all .3s, ease-out;
-  position: relative;/*-the brwoser wony acknowledge z-index without this-*/
+  transition: all .3s, ease-out;/*-allows you to change property values smoothly (from one value to another), over a given duration.-*/
+  position: relative;/*-the brwoser wont acknowledge z-index without this property-*/
   z-index: -10;
 }
 
-/*-sets content beneath all the other content on the page so it cant be accidentally clicked on while hideden with opacity.-*/
+/*-The z-index property specifies the stack order of an element. An element with greater stack order is always in front of an element with a lower stack order.-*/
 
 @media (min-width: 800px) {
 
@@ -1123,8 +1185,8 @@ a {
 }
 
 .site-header__menu-content--is-visible {
-  display: block;
-  opacity: 1;
+  display: block;/*-The display property specifies the type of box used for an HTML element.-*/
+  opacity: 1;/*-The opacity-level describes the transparency-level, where 1 is not transparent at all, 0.5 is 50% see-through, and 0 is completely transparent.-*/
   z-index: 1;
   -webkit-transform: scale(1);
           transform: scale(1);/*-return to default size-*/
@@ -1184,12 +1246,14 @@ a {
   display: block;
   padding: 5px 8px;
   font-size:  .8rem;
-  background-color: rgba(47,85,114, .6);/*-30% visibale-*/
+  background-color: rgba(47,85,114, .6);
 }
+
+/*-30% visibale-*/
 
 @media (min-width: 800px) {
 
-  .primary-nav {
+  .primary-nav a {
     font-size: 1rem;
     padding: 12px 0;
     background-color: transparent;/*-no background color-*/
