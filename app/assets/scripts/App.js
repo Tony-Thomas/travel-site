@@ -1,6 +1,8 @@
 import MobileMenu from './modules/MobileMenu';
+import RevealOnScroll from './modules/RevealOnScroll.js';
 
 var mobileMenu = new MobileMenu();
+var revealOnScroll = new RevealOnScroll();
 
 /*line 1: imports in the MobileMenu module from /app/assets/scripts/modules/MobileMenu.js
  	- "MobileMenu" is just a variable name.. we can name it anything, but we chose MobileMenu to stay oranized
