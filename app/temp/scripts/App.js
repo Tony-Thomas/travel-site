@@ -63,7 +63,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 3);
+/******/ 	return __webpack_require__(__webpack_require__.s = 4);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -9955,7 +9955,7 @@ var _jquery = __webpack_require__(0);
 
 var _jquery2 = _interopRequireDefault(_jquery);
 
-var _noframework = __webpack_require__(4);
+var _noframework = __webpack_require__(5);
 
 var _noframework2 = _interopRequireDefault(_noframework);
 
@@ -10022,6 +10022,33 @@ exports.default = RevealOnScroll;
 "use strict";
 
 
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+
+var _jquery = __webpack_require__(0);
+
+var _jquery2 = _interopRequireDefault(_jquery);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var StickyHeader = function StickyHeader() {
+	_classCallCheck(this, StickyHeader);
+
+	this.siteHeader = (0, _jquery2.default)('.site-header');
+};
+
+exports.default = StickyHeader;
+
+/***/ }),
+/* 4 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
 var _MobileMenu = __webpack_require__(1);
 
 var _MobileMenu2 = _interopRequireDefault(_MobileMenu);
@@ -10034,11 +10061,16 @@ var _jquery = __webpack_require__(0);
 
 var _jquery2 = _interopRequireDefault(_jquery);
 
+var _StickyHeader = __webpack_require__(3);
+
+var _StickyHeader2 = _interopRequireDefault(_StickyHeader);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var mobileMenu = new _MobileMenu2.default();
 new _RevealOnScroll2.default((0, _jquery2.default)(".feature-item"), "85%");
 new _RevealOnScroll2.default((0, _jquery2.default)(".testimonial"), "75%");
+var stickyHeader = new _StickyHeader2.default();
 
 // var revealOnScroll = new RevealOnScroll(); // replaced with the two lines above
 
@@ -10051,7 +10083,7 @@ new _RevealOnScroll2.default((0, _jquery2.default)(".testimonial"), "75%");
 	- new MobileMenu(); is the object that needed to be created to use the imported module */
 
 /***/ }),
-/* 4 */
+/* 5 */
 /***/ (function(module, exports) {
 
 /*!

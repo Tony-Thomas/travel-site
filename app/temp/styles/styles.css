@@ -1046,6 +1046,7 @@ a {
 @media (min-width: 800px) {
 
   .site-header {
+    position: fixed;/*-locks element to the top of the screen-*/
     background-color: rgba(47,85,114, .3);
   }
 }

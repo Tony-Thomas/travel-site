@@ -10,6 +10,7 @@
 	}
 
 	@mixin atMedium {
+		position: fixed; /*-locks element to the top of the screen-*/
 		background-color: rgba($mainBlue, .3);
 	}
 
