@@ -9966,10 +9966,11 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 // not neccessary to keep .js in filename  // in order to point to the node_modules folder from within our scripts folder, we need to first go "up" several folders "../../../../ = /app/assets/scripts/modules/ "
 
 var RevealOnScroll = function () {
-	function RevealOnScroll() {
+	function RevealOnScroll(els, offset) {
 		_classCallCheck(this, RevealOnScroll);
 
-		this.itemsToReveal = (0, _jquery2.default)('.feature-item'); // $ symbol initiates jQuery // 4 feature items stored here // collection of elements that contain referneces to hte 4 DOM elements on the page that have a class of "feature-item"
+		this.itemsToReveal = els;
+		this.offsetPercentage = offset;
 		this.hideInitially(); // runs method "hideInitially"
 		this.createWaypoints(); // calls createWaypoints function
 	}
@@ -9984,6 +9985,7 @@ var RevealOnScroll = function () {
 	}, {
 		key: 'createWaypoints',
 		value: function createWaypoints() {
+			var that = this;
 			this.itemsToReveal.each(function () {
 				// Within jQuery's each method, jQuery sets the "this" keyword to point towards the current DOM elementIf we want to do something once for each element in this collection we can use a jQuery method named "each"
 				var currentItem = this;
@@ -9993,7 +9995,7 @@ var RevealOnScroll = function () {
 						// What we want to happen once the element above is scrolled to.
 						(0, _jquery2.default)(currentItem).addClass("reveal-item--is-visible"); // Add our CSS modifier class to the current item so it gradually fades to become visible. // Using jQuery's addClass method
 					},
-					offset: "85%"
+					offset: that.offsetPercentage
 				});
 			});
 		}
@@ -10028,10 +10030,17 @@ var _RevealOnScroll = __webpack_require__(2);
 
 var _RevealOnScroll2 = _interopRequireDefault(_RevealOnScroll);
 
+var _jquery = __webpack_require__(0);
+
+var _jquery2 = _interopRequireDefault(_jquery);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var mobileMenu = new _MobileMenu2.default();
-var revealOnScroll = new _RevealOnScroll2.default();
+new _RevealOnScroll2.default((0, _jquery2.default)(".feature-item"), "85%");
+new _RevealOnScroll2.default((0, _jquery2.default)(".testimonial"), "75%");
+
+// var revealOnScroll = new RevealOnScroll(); // replaced with the two lines above
 
 /*line 1: imports in the MobileMenu module from /app/assets/scripts/modules/MobileMenu.js
  	- "MobileMenu" is just a variable name.. we can name it anything, but we chose MobileMenu to stay oranized

@@ -1,8 +1,12 @@
 import MobileMenu from './modules/MobileMenu';
 import RevealOnScroll from './modules/RevealOnScroll.js';
+import $ from 'jquery';
 
 var mobileMenu = new MobileMenu();
-var revealOnScroll = new RevealOnScroll();
+new RevealOnScroll($(".feature-item"), "85%");
+new RevealOnScroll($(".testimonial"), "75%");
+
+// var revealOnScroll = new RevealOnScroll(); // replaced with the two lines above
 
 /*line 1: imports in the MobileMenu module from /app/assets/scripts/modules/MobileMenu.js
  	- "MobileMenu" is just a variable name.. we can name it anything, but we chose MobileMenu to stay oranized
@@ -11,4 +15,3 @@ var revealOnScroll = new RevealOnScroll();
 
 /*line 3: techincally "new MobileMenu();" on its own will work, but most of the time you'll want to save it as a variable so you can access it again later on
 	- new MobileMenu(); is the object that needed to be created to use the imported module */
-

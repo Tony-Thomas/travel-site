@@ -1262,14 +1262,16 @@ a {
 
 .reveal-item {	
 	opacity: 0;	/*-our features items are intially invisible-*/
-	-webkit-transition: opacity 1.5s ease-out;
-	transition: opacity 1.5s ease-out;
+	-webkit-transition: all 1.5s ease-out;
+	transition: all 1.5s ease-out; /*-gradually transitions all properties over 1.5 seconds with ease-out transition style-*/ 
+	-webkit-transform: scale(1.15); 
+	        transform: scale(1.15);
 }
-
-/*-oppacity gradually fades in over 1.5 seconds with ease-out transition style-*/
 
 .reveal-item--is-visible {
   opacity: 1;/*-full visibilty at end of transition-*/
+  -webkit-transform: scale(1);
+          transform: scale(1);
 }
 
 /*- we will use javscript to programatically add thw "reveal-item--is-visible" class to the hidden elements at precisely the right moment when they are scrolled to. /app/assets/scripts/modules/RevealOnScroll.js-*/

@@ -1,9 +1,11 @@
 .reveal-item {	
 	opacity: 0;	/*-our features items are intially invisible-*/
-	transition: opacity 1.5s ease-out; /*-oppacity gradually fades in over 1.5 seconds with ease-out transition style-*/ 
+	transition: all 1.5s ease-out; /*-gradually transitions all properties over 1.5 seconds with ease-out transition style-*/ 
+	transform: scale(1.15);
 
 	&--is-visible {
 		opacity: 1; /*-full visibilty at end of transition-*/
+		transform: scale(1);
 	}
 }
 
