@@ -12,6 +12,10 @@
 	@mixin atMedium {
 		position: fixed; /*-locks element to the top of the screen-*/
 		background-color: rgba($mainBlue, .3);
+
+		&--dark {
+			background-color: rgba(23, 51, 72, .85); /*- header color/transparency changes to this color slightly after scrolling begins-*/
+		}
 	}
 
 	&__btn-container {
@@ -27,11 +31,16 @@
 		top: 0;
 		left: 50%; /*-position logo 50% to the left-*/
 		transform: translateX(-50%) scale(.8); /*-pulls logo back to the right 50% of its own width-*/
+		transition: transform .3s ease-out;
 		transform-origin: 50% 0%; /*- 50% 50% would be perfect middle both vertically and horizonally. setting vertical to 0% removes the space above the logo-*/
 
 		@mixin atMedium { /*-reposition logo on desktop screens-*/
 			left: auto;
 			transform: translateX(0); /*-Defines a translation, using only the value for the X-axis -- The transform property applies a 2D or 3D transformation to an element. This property allows you to rotate, scale, move, skew, etc., elements.-*/
+
+			.site-header--dark & { /*-target "site-header" class when its using the "dark" modifier. Add a space after ".site-header--dark" in order to create a decendent selector and use "&" symbol to give us selector of the logo element.-*/
+				transform: scale(.65); /*-srinks size of log once scrolling changes transparent blue header to darker color-*/
+			}
 		}
 	}
 
