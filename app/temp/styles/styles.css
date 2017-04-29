@@ -1073,7 +1073,7 @@ a {
   -webkit-transition: -webkit-transform .3s ease-out;
   transition: -webkit-transform .3s ease-out;
   transition: transform .3s ease-out;
-  transition: transform .3s ease-out, -webkit-transform .3s ease-out;
+  transition: transform .3s ease-out, -webkit-transform .3s ease-out;/*- logo grandually transition-*/
   -webkit-transform-origin: 50% 0%;
           transform-origin: 50% 0%;
 }
@@ -1089,8 +1089,8 @@ a {
   }
 
   .site-header--dark .site-header__logo {/*-target "site-header" class when its using the "dark" modifier. Add a space after ".site-header--dark" in order to create a decendent selector and use "&" symbol to give us selector of the logo element.-*/
-    -webkit-transform: scale(.65);
-            transform: scale(.65);/*-srinks size of log once scrolling changes transparent blue header to darker color-*/
+    -webkit-transform: scale(.64);
+            transform: scale(.64);/*-srinks size of log once scrolling changes transparent blue header to darker color-*/
   }
 }
 
@@ -1271,6 +1271,10 @@ a {
     font-size: 1rem;
     padding: 12px 0;
     background-color: transparent;/*-no background color-*/
+  }
+
+  .primary-nav a.is-current-link {
+    color: #fabb69;
   }
 }
 
